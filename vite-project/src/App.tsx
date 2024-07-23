@@ -8,7 +8,6 @@ const App: React.FC = () => (
     <Routes>
       <Route path="/signup" element={<RegisterLoginView />} />
       <Route path="/protectora/home" element={<ProtectoraHome />} />
-
     </Routes>
   </Router>
 );

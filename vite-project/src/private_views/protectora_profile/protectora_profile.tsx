@@ -18,7 +18,7 @@ const products = [
   { id: "10", code: "P010", name: "Product J", category: "Category 3", quantity: 100 },
 ];
 
-const ProductTable: React.FC = () => {
+const ProtectoraHome: React.FC = () => {
   const [filters, setFilters] = useState<any>({
     global: { value: '', matchMode: FilterMatchMode.CONTAINS },
     code: { value: '', matchMode: FilterMatchMode.CONTAINS },
@@ -100,4 +100,4 @@ const ProductTable: React.FC = () => {
   );
 };
 
-export default ProductTable;
+export default ProtectoraHome;

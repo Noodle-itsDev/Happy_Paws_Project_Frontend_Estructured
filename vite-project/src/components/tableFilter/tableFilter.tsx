@@ -1,103 +1,52 @@
-import React, { useState } from 'react';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
-import { InputText } from 'primereact/inputtext';
-import { FilterMatchMode } from 'primereact/api';
+import * as React from 'react';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
-// Datos de ejemplo
-const products = [
-  { id: "1", code: "P001", name: "Product A", category: "Category 1", quantity: 10 },
-  { id: "2", code: "P002", name: "Product B", category: "Category 2", quantity: 20 },
-  { id: "3", code: "P003", name: "Product C", category: "Category 1", quantity: 30 },
-  { id: "4", code: "P004", name: "Product D", category: "Category 3", quantity: 40 },
-  { id: "5", code: "P005", name: "Product E", category: "Category 2", quantity: 50 },
-  { id: "6", code: "P006", name: "Product F", category: "Category 1", quantity: 60 },
-  { id: "7", code: "P007", name: "Product G", category: "Category 3", quantity: 70 },
-  { id: "8", code: "P008", name: "Product H", category: "Category 2", quantity: 80 },
-  { id: "9", code: "P009", name: "Product I", category: "Category 1", quantity: 90 },
-  { id: "10", code: "P010", name: "Product J", category: "Category 3", quantity: 100 },
+const columns: GridColDef[] = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'firstName', headerName: 'First name', width: 130 },
+  { field: 'lastName', headerName: 'Last name', width: 130 },
+  {
+    field: 'age',
+    headerName: 'Age',
+    type: 'number',
+    width: 90,
+  },
+  {
+    field: 'fullName',
+    headerName: 'Full name',
+    description: 'This column has a value getter and is not sortable.',
+    sortable: false,
+    width: 160,
+    valueGetter: (_value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
+  },
 ];
 
-const tableFilter: React.FC = () => {
-  const [filters, setFilters] = useState<any>({
-    global: { value: '', matchMode: FilterMatchMode.CONTAINS },
-    code: { value: '', matchMode: FilterMatchMode.CONTAINS },
-    name: { value: '', matchMode: FilterMatchMode.CONTAINS },
-    category: { value: '', matchMode: FilterMatchMode.CONTAINS },
-    quantity: { value: '', matchMode: FilterMatchMode.CONTAINS },
-  });
+const rows = [
+  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+];
 
-  const header = (
-    <div className="flex items-center justify-between p-4 bg-primary-orange border-b border-gray-200">
-      <h3 className="text-lg font-semibold">Product List</h3>
-      <span className="flex items-center space-x-2">
-        <i className="pi pi-search text-gray-500" />
-        <InputText
-          type="search"
-          onInput={(e: any) => setFilters({
-            ...filters,
-            global: { value: e.target.value, matchMode: FilterMatchMode.CONTAINS }
-          })}
-          placeholder="Global Search"
-          className="p-inputtext p-component border rounded-lg"
-        />
-      </span>
-    </div>
-  );
-
+export default function DataTable() {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-lg">
-      <DataTable
-        value={products}
-        paginator
-        rows={10}
-        filters={filters}
-        filterDisplay="row"
-        globalFilterFields={['code', 'name', 'category', 'quantity']}
-        header={header}
-        removableSort
-        tableStyle={{ minWidth: '50rem' }}
-        className="p-datatable-striped p-datatable-hover"
-      >
-        <Column
-          field="code"
-          header="Code"
-          sortable
-          filter
-          filterPlaceholder="Search by code"
-          style={{ width: '25%' }}
-          className="text-gray-700"
-        />
-        <Column
-          field="name"
-          header="Name"
-          sortable
-          filter
-          filterPlaceholder="Search by name"
-          style={{ width: '25%' }}
-          className="text-gray-700"
-        />
-        <Column
-          field="category"
-          header="Category"
-          sortable
-          filter
-          filterPlaceholder="Search by category"
-          style={{ width: '25%' }}
-          className="text-gray-700"
-        />
-        <Column
-          field="quantity"
-          header="Quantity"
-          sortable
-          filter
-          filterPlaceholder="Search by quantity"
-          style={{ width: '25%' }}
-          className="text-gray-700"
-        />
-      </DataTable>
+    <div style={{ height: 400, width: '100%' }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+        checkboxSelection
+      />
     </div>
   );
-};
-
-export default tableFilter;
+}

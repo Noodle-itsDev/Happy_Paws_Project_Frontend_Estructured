@@ -1,18 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Footer from "./public_views/components/footer/footer";
+import RegisterLoginView from "./public_views/views/registerAndLogin/registerLoginView";
+import ProtectoraHome from "./private_views/protectora_profile/protectora_profile";
 
-const App: React.FC = () => {
-  return (
-    <Router>
-      <div className="app">
-        <main>
-          <Routes></Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
-  );
-};
+const App: React.FC = () => (
+  <Router>
+    <Routes>
+      <Route path="/signup" element={<RegisterLoginView />} />
+      <Route path="/protectora/home" element={<ProtectoraHome />} />
+
+    </Routes>
+  </Router>
+);
 
 export default App;

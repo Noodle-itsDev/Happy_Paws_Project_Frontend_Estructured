@@ -6,8 +6,7 @@ const RegisterLoginView: React.FC = () => {
   return (
     <>
       <main className="w-screen h-[100vh] bg-primary flex flex-col items-center justify-center">
-        <ButtonToggle/>
-
+        <ButtonToggle />
       </main>
     </>
   );

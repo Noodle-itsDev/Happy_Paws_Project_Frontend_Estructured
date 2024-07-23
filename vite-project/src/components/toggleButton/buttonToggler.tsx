@@ -96,18 +96,6 @@ const ButtonToggle: React.FC = () => {
                     required
                   />
                 </div>
-                <div className="mb-4">
-                  <label htmlFor="confirmPassword" className="block">
-                    Confirmar Contraseña:
-                  </label>
-                  <input
-                    type="password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    className="w-[350px] p-2 border border-white rounded-full bg-white text-black outline-none focus:border-blue-500 hover:bg-yellow-100"
-                    required
-                  />
-                </div>
 
                 <button
                   type="submit"

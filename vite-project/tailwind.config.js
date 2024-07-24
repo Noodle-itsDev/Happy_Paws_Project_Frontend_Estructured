@@ -44,11 +44,11 @@ export default {
         'screen-lg': '1020px',
       },
       borderRadius: {
-        'custom-sm': '4px',    // Bordes ligeramente redondeados
-        'custom-md': '8px',    // Bordes medianamente redondeados
-        'custom-lg': '16px',   // Bordes grandes redondeados
-        'custom-xl': '32px',   // Bordes extra grandes redondeados
-        'custom-full': '50%',  // círculo
+        'custom-sm': '4px',
+        'custom-md': '8px',
+        'custom-lg': '16px',
+        'custom-xl': '32px',
+        'custom-full': '50%',
       },
       borderWidth: {
         '200': '200px',

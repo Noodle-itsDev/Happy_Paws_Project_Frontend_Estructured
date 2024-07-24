@@ -4,14 +4,14 @@ import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import HandshakeIcon from "@mui/icons-material/Handshake";
-import HeaderGreen from "../../assets/img/navbarImgGreen.png";
+import HeaderWhite from "../../assets/img/navbarImgOrange.png";
 import PetsIcon from "@mui/icons-material/Pets";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import HomeIcon from "@mui/icons-material/Home";
-import GreenDPaws from "../../assets/img/whitePaws.png";
+import WhitePaws from "../../assets/img/whiteFlatPaws.png";
 import MenuIcon from "@mui/icons-material/Menu";
 
-export default function SimpleBottomNavigationGreen() {
+export default function SimpleBottomNavigationOrange() {
   const [value, setValue] = React.useState(0);
 
   return (
@@ -19,7 +19,7 @@ export default function SimpleBottomNavigationGreen() {
       <header className="fixed z-20 h-[-100px]">
         <div className="sticky z-20">
           <img
-            src={HeaderGreen}
+            src={HeaderWhite}
             alt="Header green"
             className="h-[15rem] w-[100vw] z-20"
           />
@@ -40,7 +40,7 @@ export default function SimpleBottomNavigationGreen() {
           }}
         >
           <img
-            src={GreenDPaws}
+            src={WhitePaws}
             alt=""
             className="relative w-[200px] h-[80px] z-40 mt-[-60px] mb-[30px]"
           />
@@ -52,7 +52,7 @@ export default function SimpleBottomNavigationGreen() {
             }}
             sx={{
               width: "100%",
-              backgroundColor: "#ffffff30",
+              backgroundColor: "#ffffff40",
               height: "65px",
               justifyContent: "normal",
             }}

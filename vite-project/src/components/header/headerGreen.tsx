@@ -16,7 +16,7 @@ export default function SimpleBottomNavigationGreen() {
 
   return (
     <>
-      <header className="fixed z-20 h-[-100px]">
+      <header className="fixed z-20 h-[-100px] w-auto">
         <div className="sticky z-20">
           <img
             src={HeaderGreen}
@@ -58,11 +58,11 @@ export default function SimpleBottomNavigationGreen() {
             }}
           >
             <BottomNavigationAction
-              label=""
+              label="Menu"
               icon={<MenuIcon sx={{ color: "white", marginRight: "8px" }} />}
               sx={{
                 borderRight: "1px solid white",
-                maxWidth: "100px",
+                maxWidth: "200px",
                 flexDirection: "row",
                 "& .MuiBottomNavigationAction-label": {
                   fontSize: "18px",

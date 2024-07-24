@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MultilineTextFields from "../buttonPlacerholder/buttonPlacerholder";
 
 const ButtonToggle: React.FC = () => {
   const [activeButton, setActiveButton] = useState<"left" | "right">("left");
@@ -53,9 +54,48 @@ const ButtonToggle: React.FC = () => {
           <div className="bg-white relative flex flex-col items-center justify-center w-full h-full z-10 text-white">
             <div className="bg-primary relative flex flex-col items-center justify-center w-[98%] h-[90%] z-10 text-white orangeBackground rounded-tr-[250px] xxs:rounded-tr-[40px]">
               <h2 className="text-4xl mb-4 font-bold xxs:">Registro</h2>
-              <form className="flex flex-col items-center max-w-md w-full">
-                <div className="mb-4">
-
+              <form className="grid grid-col items-center justify-center max-w-md mx-auto">
+                <div className="mb-2 w-full">
+                  <MultilineTextFields
+                    placeholder="usuario"
+                    nameButton="Usuario"
+                    idButton="usuario"
+                    width="350px"
+                  />
+                </div>
+                <div className="mb-2 w-full">
+                  <MultilineTextFields
+                    placeholder="Nombre"
+                    nameButton="Nombre"
+                    idButton="nombre"
+                    width="350px"
+                  />
+                </div>
+                <div className="mb-2 w-full">
+                  <MultilineTextFields
+                    placeholder="Apellidos"
+                    nameButton="Apellidos"
+                    idButton="apellidos"
+                    width="350px"
+                  />
+                </div>
+                <div className="grid grid-cols-2 justify-center max-w-[320px] gap-[20px]">
+                  <div className="mb-2 w-full">
+                    <MultilineTextFields
+                      placeholder="Nombre"
+                      nameButton="Nombre"
+                      idButton="nombre"
+                      width="175px"
+                    />
+                  </div>
+                  <div className="mb-2 w-full">
+                    <MultilineTextFields
+                      placeholder="Nombre"
+                      nameButton="Nombre"
+                      idButton="nombre"
+                      width="100px"
+                    />
+                  </div>
                 </div>
               </form>
             </div>

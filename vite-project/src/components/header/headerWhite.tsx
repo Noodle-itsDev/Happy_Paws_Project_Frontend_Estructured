@@ -16,7 +16,7 @@ export default function SimpleBottomNavigationOrange() {
 
   return (
     <>
-      <header className="fixed z-20 h-[-100px]">
+      <header className="fixed z-20 h-[-100px]  w-auto">
         <div className="sticky z-20">
           <img
             src={HeaderWhite}
@@ -58,15 +58,15 @@ export default function SimpleBottomNavigationOrange() {
             }}
           >
             <BottomNavigationAction
-              label=""
+              label="Menu"
               icon={<MenuIcon sx={{ color: "white", marginRight: "8px" }} />}
               sx={{
                 borderRight: "1px solid white",
-                maxWidth: "100px",
+                maxWidth: "200px",
                 flexDirection: "row",
                 "& .MuiBottomNavigationAction-label": {
-                  fontSize: "18px",
-                  transition: "font-size 0.3s ease, color 0.3s ease",
+                  fontSize: "20px",
+                  transition: "font-size 0.6s ease, color 0.6s ease",
                 },
                 "&.Mui-selected .MuiBottomNavigationAction-label": {
                   fontSize: "20px",
@@ -76,6 +76,7 @@ export default function SimpleBottomNavigationOrange() {
                 },
               }}
             />
+
             <BottomNavigationAction
               label="Inicio"
               icon={<HomeIcon sx={{ color: "white", marginRight: "8px" }} />}
@@ -157,6 +158,7 @@ export default function SimpleBottomNavigationOrange() {
                 },
               }}
             />
+
             <BottomNavigationAction
               label="Donaciones"
               icon={
@@ -165,6 +167,26 @@ export default function SimpleBottomNavigationOrange() {
                 />
               }
               sx={{
+                maxWidth: "200px",
+                flexDirection: "row",
+                borderRight: "1px solid white",
+                "& .MuiBottomNavigationAction-label": {
+                  fontSize: "20px",
+                  transition: "font-size 0.6s ease, color 0.6s ease",
+                },
+                "&.Mui-selected .MuiBottomNavigationAction-label": {
+                  fontSize: "20px",
+                },
+                "&:hover .MuiBottomNavigationAction-label": {
+                  color: "rgba(255, 255, 255, 0.8)",
+                },
+              }}
+            />
+            <BottomNavigationAction
+              label="About Us"
+              icon={<HomeIcon sx={{ color: "white", marginRight: "8px" }} />}
+              sx={{
+
                 maxWidth: "200px",
                 flexDirection: "row",
                 "& .MuiBottomNavigationAction-label": {

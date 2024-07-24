@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./buttonToggler.css";
 
 const ButtonToggle: React.FC = () => {
   const [activeButton, setActiveButton] = useState<"left" | "right">("left");
@@ -9,7 +8,14 @@ const ButtonToggle: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-screen-lg mx-auto">
+    <div
+      className="flex flex-col items-center justify-center w-full bg-primary mx-auto mt-[20rem]"
+      style={{
+        width: "fit-content",
+        border: "5px solid #FFA500",
+        borderRadius: "10px 10px 0px 0px",
+      }}
+    >
       <div className="flex w-[85vw] max-w-[1020px]">
         <button
           className={`flex-1 px-5 py-2 text-lg rounded-t-lg transition-all duration-700 ease-in-out ${
@@ -19,7 +25,7 @@ const ButtonToggle: React.FC = () => {
           }`}
           onClick={() => handleClick("left")}
         >
-          <span>Registro</span>
+          <span className="font-bold">Registro</span>
         </button>
         <button
           className={`flex-1 px-5 py-2 text-lg rounded-t-lg transition-all duration-700 ease-in-out ${
@@ -29,7 +35,7 @@ const ButtonToggle: React.FC = () => {
           }`}
           onClick={() => handleClick("right")}
         >
-          <span>Login</span>
+          <span className="font-bold">Login</span>
         </button>
       </div>
 
@@ -49,60 +55,8 @@ const ButtonToggle: React.FC = () => {
               <h2 className="text-4xl mb-4 font-bold xxs:">Registro</h2>
               <form className="flex flex-col items-center max-w-md w-full">
                 <div className="mb-4">
-                  <label htmlFor="username" className="block">
-                    Nombre de Usuario:
-                  </label>
-                  <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    className="w-[350px] p-2 border border-white rounded-full bg-white text-black outline-none focus:border-blue-500 hover:bg-yellow-100"
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="email" className="block">
-                    Correo Electrónico:
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="w-[350px] p-2 border border-white rounded-full bg-white text-black outline-none focus:border-blue-500 hover:bg-yellow-100"
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="password" className="block">
-                    Contraseña:
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    className="w-[350px] p-2 border border-white rounded-full bg-white text-black outline-none focus:border-blue-500 hover:bg-yellow-100"
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="confirmPassword" className="block">
-                    Confirmar Contraseña:
-                  </label>
-                  <input
-                    type="password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    className="w-[350px] p-2 border border-white rounded-full bg-white text-black outline-none focus:border-blue-500 hover:bg-yellow-100"
-                    required
-                  />
-                </div>
 
-                <button
-                  type="submit"
-                  className="mt-2 w-[250px] py-2 rounded bg-orange-600 text-white text-lg transition-colors duration-300 ease-in-out hover:bg-orange-700"
-                >
-                  Registrarse
-                </button>
+                </div>
               </form>
             </div>
           </div>
@@ -120,7 +74,7 @@ const ButtonToggle: React.FC = () => {
           />
           <div className="bg-white relative flex flex-col items-center justify-center w-full h-full z-10 text-white">
             <div className="bg-primary relative flex flex-col items-center justify-center w-[98%] h-[90%] z-10 text-white orangeBackground rounded-tr-[250px]">
-              <h2 className="text-4xl mb-4 font-bold">¡Bienvenido de nuevo!</h2>
+              <h1 className="text-4xl mb-4 font-bold">¡Bienvenido de nuevo!</h1>
               <form className="flex flex-col items-center max-w-md w-full mt-6">
                 <div className="mb-4">
                   <label htmlFor="loginEmail" className="block">

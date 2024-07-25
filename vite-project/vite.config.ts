@@ -1,7 +1,19 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+// Si decides usar createHtmlPlugin, asegúrate de que esté instalado
+// import { createHtmlPlugin } from 'vite-plugin-html';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-})
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.indexOf('node_modules') !== -1) {
+            return 'vendor';
+          }
+        }
+      }
+    }
+  }
+});

@@ -1,52 +1,114 @@
-// import * as React from 'react';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import React, { useState } from "react";
 
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'First name', width: 130 },
-  { field: 'lastName', headerName: 'Last name', width: 130 },
+// Definición de la interfaz para una notificación
+interface Notificacion {
+  fecha: string;
+  descripcion: string;
+  categoria: "adopciones" | "donaciones" | "voluntarios";
+}
+
+const queryResults: Notificacion[] = [
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 90,
+    fecha: "2024-07-24",
+    descripcion: "Nuevo perro disponible para adopción",
+    categoria: "adopciones",
   },
   {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 160,
-    valueGetter: (_value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
+    fecha: "2024-07-23",
+    descripcion: "Se necesita donación de alimentos",
+    categoria: "donaciones",
+  },
+  {
+    fecha: "2024-07-22",
+    descripcion: "Voluntarios requeridos para evento de adopción",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-21",
+    descripcion: "Adopción exitosa de tres gatos",
+    categoria: "adopciones",
+  },
+  {
+    fecha: "2024-07-20",
+    descripcion: "Donación de suministros médicos recibida",
+    categoria: "donaciones",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
   },
 ];
 
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+// Componente que renderiza la tabla con filtros
+const NotificacionesTable: React.FC = () => {
+  const [filtros, setFiltros] = useState({
+    adopciones: true,
+    donaciones: false,
+    voluntarios: true,
+  });
 
-export default function DataTable() {
+  const handleCheckboxChange = (
+    categoria: "adopciones" | "donaciones" | "voluntarios"
+  ) => {
+    setFiltros((prevState) => ({
+      ...prevState,
+      [categoria]: !prevState[categoria],
+    }));
+  };
+
+  const filteredResults = queryResults.filter(
+    (notificacion) => filtros[notificacion.categoria]
+  );
+
   return (
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection
-      />
+    <div>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={filtros.adopciones}
+            onChange={() => handleCheckboxChange("adopciones")}
+          />
+          Adopciones
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={filtros.donaciones}
+            onChange={() => handleCheckboxChange("donaciones")}
+          />
+          Donaciones
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={filtros.voluntarios}
+            onChange={() => handleCheckboxChange("voluntarios")}
+          />
+          Voluntarios
+        </label>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Categoría</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredResults.map((notificacion, index) => (
+            <tr key={index}>
+              <td>{notificacion.fecha}</td>
+              <td>{notificacion.descripcion}</td>
+              <td>{notificacion.categoria}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
-}
+};
+
+export default NotificacionesTable;

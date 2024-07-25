@@ -32,7 +32,7 @@ export default function SimpleBottomNavigation({
           <img
             src={headerImg}
             alt="Header"
-            className="h-[13rem] w-[100vw] z-20"
+            className="h-[11rem] w-[100vw] z-20"
           />
         </div>
 
@@ -53,7 +53,7 @@ export default function SimpleBottomNavigation({
             <img
               src={pawsImg}
               alt="Paws"
-              className="w-[170px] h-[70px] z-40 ml-[40px] mt-[20px]"
+              className="w-[170px] h-[70px] z-40 ml-[40px] mt-[48px]"
             />
           </div>
           <BottomNavigation
@@ -65,7 +65,7 @@ export default function SimpleBottomNavigation({
             sx={{
               width: "100%",
               backgroundColor: "#ffffff40",
-              height: "65px",
+              height: "55px",
               justifyContent: "normal",
             }}
           >
@@ -75,15 +75,12 @@ export default function SimpleBottomNavigation({
                 label={item.label}
                 icon={item.icon}
                 sx={{
-                  borderRight: "1px solid white",
-                  maxWidth: "200px",
+                  maxWidth: "170px",
                   flexDirection: "row",
                   "& .MuiBottomNavigationAction-label": {
                     fontSize: "20px",
                     transition: "font-size 0.6s ease, color 0.6s ease",
-                  },
-                  "&.Mui-selected .MuiBottomNavigationAction-label": {
-                    fontSize: "20px",
+
                   },
                   "&:hover .MuiBottomNavigationAction-label": {
                     color: "rgba(255, 255, 255, 0.8)",

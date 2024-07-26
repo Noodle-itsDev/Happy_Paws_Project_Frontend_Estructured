@@ -1,5 +1,19 @@
-
 import React, { useState } from "react";
+import {
+  Box,
+  Checkbox,
+  FormControlLabel,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableFooter,
+  Paper,
+  Typography,
+  TablePagination,
+} from "@mui/material";
 
 // Definición de la interfaz para una notificación
 interface Notificacion {
@@ -39,6 +53,121 @@ const queryResults: Notificacion[] = [
     descripcion: "Capacitación para nuevos voluntarios",
     categoria: "voluntarios",
   },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
+  {
+    fecha: "2024-07-19",
+    descripcion: "Capacitación para nuevos voluntarios",
+    categoria: "voluntarios",
+  },
 ];
 
 // Componente que renderiza la tabla con filtros
@@ -48,6 +177,9 @@ const NotificacionesTable: React.FC = () => {
     donaciones: false,
     voluntarios: true,
   });
+
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleCheckboxChange = (
     categoria: "adopciones" | "donaciones" | "voluntarios"
@@ -62,49 +194,142 @@ const NotificacionesTable: React.FC = () => {
     (notificacion) => filtros[notificacion.categoria]
   );
 
+  // Pagination logic
+  const handleChangePage = (
+    event: React.MouseEvent<HTMLButtonElement> | null,
+    newPage: number
+  ) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  const paginatedResults = filteredResults.slice(
+    page * rowsPerPage,
+    page * rowsPerPage + rowsPerPage
+  );
+
   return (
-    <div className="grid w-[95%] min-h-[60%] rounded-[30px] overflow-hidden" style={{fontFamily: "Roboto", fontWeight: "none"}}>
-      <table className="">
-        <thead className="bg-[#22a999] h-[60px] border-b border-white-500">
-          <th className=" border-r border-white-500">Filtros</th>
-          <th className="">Panel de notifiaciones / Acciones</th>
-        </thead>
-        <tr className="">
-          <td className="w-[30%] bg-secondary-orange border-r border-white-500 p-2 align-top">
-            <div className="grid grid-cols-1 xxs:">
-              <label>
-                <input
-                  className="ml-[40px]"
-                  type="checkbox"
-                  checked={filtros.adopciones}
-                  onChange={() => handleCheckboxChange("adopciones")}
+    <Box sx={{ width: "90%", fontFamily: "Roboto", position: "relative" }}>
+      <TableContainer
+        component={Paper}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          maxHeight: "calc(90vh - 56px)",
+          overflow: "auto",
+          boxShadow: 5,
+          borderRadius: 1,
+        }}
+      >
+        <Table sx={{ minWidth: 650 }}>
+          <TableHead sx={{
+            backgroundColor: "#6cc4af",
+            color: "white",
+            position: "sticky",
+            top: 0,
+            height: "56px",
+          }}>
+            <TableRow>
+              <TableCell sx={{ borderRight: "1px solid white" }}>
+                Filtros
+              </TableCell>
+              <TableCell>Panel de notificaciones / Acciones</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell
+                sx={{
+                  width: "30%",
+                  backgroundColor: "#a0a0a045",
+                  borderRight: "1px solid white",
+                  padding: 2,
+                  verticalAlign: "top",
+                }}
+              >
+                <Box>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={filtros.adopciones}
+                        onChange={() => handleCheckboxChange("adopciones")}
+                      />
+                    }
+                    label="Adopciones"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={filtros.donaciones}
+                        onChange={() => handleCheckboxChange("donaciones")}
+                      />
+                    }
+                    label="Donaciones"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={filtros.voluntarios}
+                        onChange={() => handleCheckboxChange("voluntarios")}
+                      />
+                    }
+                    label="Voluntarios"
+                  />
+                </Box>
+              </TableCell>
+              <TableCell
+                sx={{
+                  width: "70%",
+                  backgroundColor: "#a0a0a045",
+                }}
+              >
+                <Box>
+                  {paginatedResults.map((notificacion, index) => (
+                    <Box key={index} sx={{ marginBottom: 2 }}>
+                      <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                        {notificacion.fecha}
+                      </Typography>
+                      <Typography variant="body2">
+                        {notificacion.descripcion}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+          <TableFooter
+            sx={{
+              backgroundColor: "#6cc4af",
+              color: "white",
+              position: "sticky",
+              bottom: 0,
+              height: "56px",
+            }}
+          >
+            <TableRow>
+              <TableCell colSpan={2}>
+                <TablePagination
+                  component="div"
+                  count={filteredResults.length}
+                  page={page}
+                  onPageChange={handleChangePage}
+                  rowsPerPage={rowsPerPage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  rowsPerPageOptions={[5, 10, 25, 50]}
                 />
-                <span className="ml-[20px]">Adopciones</span>
-              </label>
-              <label>
-                <input
-                  className="ml-[40px]"
-                  type="checkbox"
-                  checked={filtros.donaciones}
-                  onChange={() => handleCheckboxChange("donaciones")}
-                />
-                <span className="ml-[20px]">Donaciones</span>
-              </label>
-              <label>
-                <input
-                  className="ml-[40px]"
-                  type="checkbox"
-                  checked={filtros.voluntarios}
-                  onChange={() => handleCheckboxChange("voluntarios")}
-                />
-                <span className="ml-[20px]">Voluntarios</span>
-              </label>
-            </div>
-          </td>
-          <td className="w-[70%] bg-secondary-orange "></td>
-        </tr>
-      </table>
-    </div>
+              </TableCell>
+            </TableRow>
+          </TableFooter>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 };
 

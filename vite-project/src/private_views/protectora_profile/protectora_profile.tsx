@@ -1,67 +1,31 @@
 import React from "react";
 import "../../index.css";
-import { SimpleBottomNavigation } from "../../components/header/headerWhite";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import HandshakeIcon from "@mui/icons-material/Handshake";
-import PetsIcon from "@mui/icons-material/Pets";
-import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
-import HomeIcon from "@mui/icons-material/Home";
-import MenuIcon from "@mui/icons-material/Menu";
-import WhiteLogo from "../../assets/img/whiteFlatPaws.png";
-import GrennNav from "../../assets/img/navbarImgGreen.png";
 import NotificationPanel from "../../components/tableFilter/tableFilter";
+import PrimarySearchAppBar from "../../components/header/headerGradient";
+import SimpleBottomNavigation from "../../components/navigation/navigationNavBar";
+import ProtectoraPawsCard from "../../components/cardImgProfile.tsx/cardImgProfile";
 
 const ProtectoraHomeView: React.FC = () => {
-  const navItems = [
-    {
-      label: "Menu",
-      icon: <MenuIcon sx={{ color: "white", marginRight: "8px" }} />,
-    },
-    {
-      label: "Inicio",
-      icon: <HomeIcon sx={{ color: "white", marginRight: "8px" }} />,
-    },
-    {
-      label: "Voluntarios",
-      icon: <HandshakeIcon sx={{ color: "white", marginRight: "8px" }} />,
-    },
-    {
-      label: "Peticiones",
-      icon: <PetsIcon sx={{ color: "white", marginRight: "8px" }} />,
-    },
-    {
-      label: "Protectoras",
-      icon: <LocationOnIcon sx={{ color: "white", marginRight: "8px" }} />,
-    },
-    {
-      label: "Donaciones",
-      icon: (
-        <VolunteerActivismIcon sx={{ color: "white", marginRight: "8px" }} />
-      ),
-    },
-    {
-      label: "About Us",
-      icon: <HomeIcon sx={{ color: "white", marginRight: "8px" }} />,
-    },
-  ];
 
   return (
     <>
+      <PrimarySearchAppBar backgroundGradient=" linear-gradient(90deg, rgba(0,151,178,1) 0%, rgba(126,217,87,1) 100%)" />
       <SimpleBottomNavigation
-        headerImg={GrennNav}
-        pawsImg={WhiteLogo}
-        navItems={navItems}
+        labels={{
+          recents: "Adopciones",
+          favorites: "Inicio",
+          nearby: "Voluntariado",
+        }}
       />
-      <main className="w-[100vw] h-[100vh] flex flex-col items-center justify-center bg-gray-100  mt-[8rem] bg-[#efefef]">
-        <div className="w-full h-full grid grid-cols-1 lg:grid-cols-10 grid-rows-2 lg:grid-rows-1 gap-4 lg:gap-0">
+      <main className="w-[100vw] h-[100vh] p-20 flex flex-col items-center justify-center bg-secondary-orange bg-[#efefef]" style={{ background: "linear-gradient(#22a99947 0%, white 50%, white 100%)" }}>
+        <div className="w-full h-full grid grid-cols-1 lg:grid-cols-10 grid-rows-2 lg:grid-rows-1">
           <div className=" flex items-center justify-center lg:col-span-4 order-1 lg:order-2">
-              <div className="w-[70%] h-[100vh] bg-[#4bbe7c]">
-                  <div></div>
-                  <div></div>
-              </div>
+            <div className="w-[80vh] h-[90vh] bg-[#2dae9166] rounded-[20px] flex justify-center">
+              <ProtectoraPawsCard/>
+            </div>
           </div>
           <div className=" flex items-center justify-center lg:col-span-6 order-2 lg:order-1 px-4">
-          <NotificationPanel/>
+            <NotificationPanel />
           </div>
         </div>
       </main>

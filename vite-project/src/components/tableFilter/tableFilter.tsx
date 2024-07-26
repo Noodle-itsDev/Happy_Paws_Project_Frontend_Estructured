@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 // Definición de la interfaz para una notificación
@@ -62,50 +63,46 @@ const NotificacionesTable: React.FC = () => {
   );
 
   return (
-    <div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={filtros.adopciones}
-            onChange={() => handleCheckboxChange("adopciones")}
-          />
-          Adopciones
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={filtros.donaciones}
-            onChange={() => handleCheckboxChange("donaciones")}
-          />
-          Donaciones
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={filtros.voluntarios}
-            onChange={() => handleCheckboxChange("voluntarios")}
-          />
-          Voluntarios
-        </label>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Descripción</th>
-            <th>Categoría</th>
-          </tr>
+    <div className="grid w-[95%] min-h-[60%] rounded-[30px] overflow-hidden" style={{fontFamily: "Roboto", fontWeight: "none"}}>
+      <table className="">
+        <thead className="bg-[#22a999] h-[60px] border-b border-white-500">
+          <th className=" border-r border-white-500">Filtros</th>
+          <th className="">Panel de notifiaciones / Acciones</th>
         </thead>
-        <tbody>
-          {filteredResults.map((notificacion, index) => (
-            <tr key={index}>
-              <td>{notificacion.fecha}</td>
-              <td>{notificacion.descripcion}</td>
-              <td>{notificacion.categoria}</td>
-            </tr>
-          ))}
-        </tbody>
+        <tr className="">
+          <td className="w-[30%] bg-secondary-orange border-r border-white-500 p-2 align-top">
+            <div className="grid grid-cols-1 xxs:">
+              <label>
+                <input
+                  className="ml-[40px]"
+                  type="checkbox"
+                  checked={filtros.adopciones}
+                  onChange={() => handleCheckboxChange("adopciones")}
+                />
+                <span className="ml-[20px]">Adopciones</span>
+              </label>
+              <label>
+                <input
+                  className="ml-[40px]"
+                  type="checkbox"
+                  checked={filtros.donaciones}
+                  onChange={() => handleCheckboxChange("donaciones")}
+                />
+                <span className="ml-[20px]">Donaciones</span>
+              </label>
+              <label>
+                <input
+                  className="ml-[40px]"
+                  type="checkbox"
+                  checked={filtros.voluntarios}
+                  onChange={() => handleCheckboxChange("voluntarios")}
+                />
+                <span className="ml-[20px]">Voluntarios</span>
+              </label>
+            </div>
+          </td>
+          <td className="w-[70%] bg-secondary-orange "></td>
+        </tr>
       </table>
     </div>
   );

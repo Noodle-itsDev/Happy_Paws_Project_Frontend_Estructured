@@ -9,9 +9,9 @@ export default {
     extend: {
       colors: {
           primary: '#FFA500',
-          secondaryGreen: '#50C878',
+          'secondary-green': '#50C878',
           secondaryBlue: '#87CEEB',
-          'primary-orange': '#FFA500',
+          'secondary-orange': '#ebdec3',
           'inactive-bg': 'rgba(153, 115, 44, 0.822)',
           'inactive-text': 'rgb(199, 199, 199)',
       },

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import MultilineTextFields from "../buttonPlacerholder/buttonPlacerholder";
+import { ContainedButtons } from "../buttonPlacerholder/buttonSubmit";
+import { PasswordToggleButton } from "../buttonPlacerholder/buttonPassword";
 
 const ButtonToggle: React.FC = () => {
   const [activeButton, setActiveButton] = useState<"left" | "right">("left");
@@ -10,7 +12,7 @@ const ButtonToggle: React.FC = () => {
 
   return (
     <div
-      className="flex flex-col items-center justify-center w-full bg-primary mx-auto mt-[20rem]"
+      className="flex flex-col items-center justify-center w-full bg-primary mx-auto"
       style={{
         width: "fit-content",
         border: "5px solid #FFA500",
@@ -21,7 +23,7 @@ const ButtonToggle: React.FC = () => {
         <button
           className={`flex-1 px-5 py-2 text-lg rounded-t-lg transition-all duration-700 ease-in-out ${
             activeButton === "left"
-              ? "bg-white text-primary-orange flex-grow"
+              ? "bg-white text-primary flex-grow"
               : "bg-inactive-bg text-inactive-text flex-shrink"
           }`}
           onClick={() => handleClick("left")}
@@ -31,7 +33,7 @@ const ButtonToggle: React.FC = () => {
         <button
           className={`flex-1 px-5 py-2 text-lg rounded-t-lg transition-all duration-700 ease-in-out ${
             activeButton === "right"
-              ? "bg-white text-primary-orange flex-grow"
+              ? "bg-white text-primary flex-grow"
               : "bg-inactive-bg text-inactive-text flex-shrink"
           }`}
           onClick={() => handleClick("right")}
@@ -53,9 +55,9 @@ const ButtonToggle: React.FC = () => {
           />
           <div className="bg-white relative flex flex-col items-center justify-center w-full h-full z-10 text-white">
             <div className="bg-primary relative flex flex-col items-center justify-center w-[98%] h-[90%] z-10 text-white orangeBackground rounded-tr-[250px] xxs:rounded-tr-[40px]">
-              <h2 className="text-4xl mb-4 font-bold xxs:">Registro</h2>
-              <form className="grid grid-cols-1 gap-4 items-center justify-center max-w-[320px]">
-                <div className="w-full">
+              <h2 className="text-4xl mt-[-20px] mb-4 font-bold ">Registro</h2>
+              <form className="grid grid-cols-1 gap-4 items-center justify-center max-w-[320px] h-auto">
+                <div className="w-full  mb-[-20px]">
                   <MultilineTextFields
                     placeholder="usuario"
                     nameButton="Usuario"
@@ -63,7 +65,7 @@ const ButtonToggle: React.FC = () => {
                     width="350px"
                   />
                 </div>
-                <div className="w-full">
+                <div className="w-full  mb-[-20px]">
                   <MultilineTextFields
                     placeholder="Nombre"
                     nameButton="Nombre"
@@ -71,7 +73,7 @@ const ButtonToggle: React.FC = () => {
                     width="350px"
                   />
                 </div>
-                <div className="w-full">
+                <div className="w-full  mb-[-20px]">
                   <MultilineTextFields
                     placeholder="Apellidos"
                     nameButton="Apellidos"
@@ -79,31 +81,23 @@ const ButtonToggle: React.FC = () => {
                     width="350px"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-4 w-full">
-                  <div className="w-auto">
-                    <MultilineTextFields
-                      placeholder="Nombre"
-                      nameButton="Nombre"
-                      idButton="nombre"
-                      width="185px"
-                    />
-                  </div>
-                  <div className="w-auto">
-                    <MultilineTextFields
-                      placeholder="Nombre"
-                      nameButton="Nombre"
-                      idButton="nombre"
-                      width="100%"
-                    />
-                  </div>
-                </div>
-                <div className="w-full">
+
+                <div className="w-full  mb-[-10px]">
                   <MultilineTextFields
-                    placeholder="Apellidos"
-                    nameButton="Apellidos"
-                    idButton="apellidos"
+                    placeholder="E-Mail"
+                    nameButton="E-Mail"
+                    idButton="email"
                     width="350px"
                   />
+                </div>
+                <div className="w-full  mb-[-2px] flex justify-center">
+                <PasswordToggleButton label={"Contraseña"}/>
+                </div>
+                <div className="w-full flex justify-center">
+                <PasswordToggleButton label={"Confirmar contraseña"}/>
+                </div>
+                <div className="w-full  mb-[-2px] flex justify-center">
+                <ContainedButtons/>
                 </div>
               </form>
             </div>

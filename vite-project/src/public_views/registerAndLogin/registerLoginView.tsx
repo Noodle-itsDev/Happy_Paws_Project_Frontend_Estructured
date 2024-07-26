@@ -1,14 +1,14 @@
 import React from "react";
 import '../../index.css';
 import ButtonToggle from "../../components/toggleButton/buttonToggler";
-import SimpleBottomNavigation from "../../components/header/headerWhite";
+import { SimpleBottomNavigation } from "../../components/header/headerWhite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import PetsIcon from "@mui/icons-material/Pets";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
-import WhiteLogo from "../../assets/img/whitePaws.png";
+import WhiteLogo from "../../assets/img/whiteFlatPaws.png";
 import GrennNav from "../../assets/img/navbarImgOrange.png";
 
 const RegisterLoginView: React.FC = () => {
@@ -30,7 +30,7 @@ const RegisterLoginView: React.FC = () => {
         pawsImg={WhiteLogo}
         navItems={navItems}
       />
-      <main className="w-screen h-[120vh] bg-white flex flex-col items-center justify-center">
+      <main className="w-screen h-[120vh] flex flex-col items-center justify-center mt-[8rem] bg-[#efefef]">
         <ButtonToggle />
       </main>
     </>

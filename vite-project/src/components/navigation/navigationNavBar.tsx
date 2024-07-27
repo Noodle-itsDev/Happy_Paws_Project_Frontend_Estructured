@@ -8,9 +8,12 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 interface SimpleBottomNavigationProps {
   labels: {
-    recents: string;
-    favorites: string;
-    nearby: string;
+    textoUno: string;
+    textoDos: string;
+    textoTres: string;
+    textoCuatro: string;
+    textoCinco: string;
+    textoSeis: string;
   };
 }
 
@@ -18,18 +21,25 @@ export default function SimpleBottomNavigation({ labels }: SimpleBottomNavigatio
   const [value, setValue] = React.useState(0);
 
   return (
-    <Box sx={{ width: '100vw', boxShadow: '0px 4px 5px gray'}}>
+    <Box sx={{ width: '100vw', boxShadow: '0px 4px 5px gray', height: '6vh' }}>
       <BottomNavigation
         showLabels
         value={value}
         onChange={(_event, newValue) => {
           setValue(newValue);
         }}
-        sx={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }} // Blanco con 80% de transparencia
+        sx={{ 
+          backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+          justifyContent: 'center', 
+          height: '100%' 
+        }} // Blanco con 80% de transparencia
       >
-        <BottomNavigationAction label={labels.recents} icon={<RestoreIcon />} />
-        <BottomNavigationAction label={labels.favorites} icon={<FavoriteIcon />} />
-        <BottomNavigationAction label={labels.nearby} icon={<LocationOnIcon />} />
+        <BottomNavigationAction label={labels.textoUno} icon={<RestoreIcon />} />
+        <BottomNavigationAction label={labels.textoDos} icon={<FavoriteIcon />} />
+        <BottomNavigationAction label={labels.textoTres} icon={<LocationOnIcon />} />
+        <BottomNavigationAction label={labels.textoCuatro} icon={<RestoreIcon />} />
+        <BottomNavigationAction label={labels.textoCinco} icon={<FavoriteIcon />} />
+        <BottomNavigationAction label={labels.textoSeis} icon={<LocationOnIcon />} />
       </BottomNavigation>
     </Box>
   );

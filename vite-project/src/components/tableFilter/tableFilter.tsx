@@ -229,7 +229,7 @@ const NotificacionesTable: React.FC = () => {
       >
         <Table sx={{ minWidth: 650 }}>
           <TableHead sx={{
-            backgroundColor: "#6cc4af",
+            backgroundColor: "#0499af",
             color: "white",
             position: "sticky",
             top: 0,
@@ -306,7 +306,7 @@ const NotificacionesTable: React.FC = () => {
           </TableBody>
           <TableFooter
             sx={{
-              backgroundColor: "#6cc4af",
+              backgroundColor: "#0499af",
               color: "white",
               position: "sticky",
               bottom: 0,

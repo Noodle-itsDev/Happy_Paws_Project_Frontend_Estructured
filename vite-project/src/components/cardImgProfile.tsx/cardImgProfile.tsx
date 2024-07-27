@@ -4,9 +4,8 @@ import { Card, CardContent, TextField, Typography } from "@mui/material";
 const ProtectoraPawsCard: React.FC = () => {
   return (
     <Card
-      className="max-w-md bg-transparent shadow-none" 
+      className="max-w-md shadow-none" 
       sx={{
-
         backgroundColor: "transparent",
         boxShadow: "none",
         alignContent: "center",
@@ -14,7 +13,6 @@ const ProtectoraPawsCard: React.FC = () => {
     >
       <CardContent
         sx={{
-          backgroundColor: "transparent",
           color: "white",
           padding: "16px", 
         }}

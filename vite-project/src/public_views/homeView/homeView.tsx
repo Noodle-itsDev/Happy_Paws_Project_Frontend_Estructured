@@ -11,7 +11,6 @@ import './homeView.css';
 import { animateImage } from "./homeViewButtons";
 import CometTrail from "./comet Trail/comet";
 import ToggleDiv from "../../components/toogleDiv/toogleDiv";
-import { dividerClasses } from "@mui/material";
 
 
 const items = [
@@ -62,14 +61,14 @@ const HomeView: React.FC = () => {
             </section>
             <section className="relative z-[1100] buttons-animation w-[100vw]" ref={buttonsContainerRef}>
                 <CometTrail />
-                <div className=" flex flex-col lg:flex-row items-center justify-center backgroundAnimated h-[900px] p-4 lg:p-8">
+                <div className=" flex flex-col lg:flex-row items-center justify-center backgroundAnimated h-[1000px] p-4 lg:p-8 sticky top-0">
                     <div className="max-w-[100vw] textAdopciones">
                         <div className="mt-[-100px] flex align-center justify-center">
                             <img className="imageLogo" src={LogoImage} alt="Logo" ref={logoImgRef} />
                         </div>
                         <div className="bg-white-500 flex align-center justify-center textContainerBenefits max-w-[1400px] mt-[100px]">
                             <span>
-                            Adopta Amor, Un Hogar Seguro, Una Vida Feliz
+                            Adopta Amor, Un Hogar Seguro, Una Vida Feliz <br/> y Gestiona la amabilidad
                             </span>
                         </div>
                     </div>

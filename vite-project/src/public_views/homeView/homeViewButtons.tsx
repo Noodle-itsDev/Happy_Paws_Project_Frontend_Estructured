@@ -1,4 +1,4 @@
-// src/animations/scrollTrigger.js
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MutableRefObject } from 'react';

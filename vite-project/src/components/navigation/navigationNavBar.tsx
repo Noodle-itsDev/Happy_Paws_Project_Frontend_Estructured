@@ -21,18 +21,14 @@ export default function SimpleBottomNavigation({ labels }: SimpleBottomNavigatio
   const [value, setValue] = React.useState(0);
 
   return (
-    <Box sx={{ width: '100vw', boxShadow: '0px 4px 5px gray', height: '6vh' }}>
+    <Box sx={{ width: '100vw', boxShadow: '0px 4px 5px gray'}}>
       <BottomNavigation
         showLabels
         value={value}
         onChange={(_event, newValue) => {
           setValue(newValue);
         }}
-        sx={{ 
-          backgroundColor: 'rgba(255, 255, 255, 0.8)', 
-          justifyContent: 'center', 
-          height: '100%' 
-        }} // Blanco con 80% de transparencia
+        sx={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', justifyContent: 'center' }} // Blanco con 80% de transparencia
       >
         <BottomNavigationAction label={labels.textoUno} icon={<RestoreIcon />} />
         <BottomNavigationAction label={labels.textoDos} icon={<FavoriteIcon />} />
@@ -44,3 +40,11 @@ export default function SimpleBottomNavigation({ labels }: SimpleBottomNavigatio
     </Box>
   );
 }
+/*    
+    textoUno: string,
+    textoDos: string,
+    textoTres: string,
+    textoCuatro: string,
+    textoCinco: string,
+    textoSeis: string,
+    */

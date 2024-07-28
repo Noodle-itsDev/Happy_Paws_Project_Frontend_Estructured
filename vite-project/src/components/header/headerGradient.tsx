@@ -13,7 +13,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
+import MoreIcon from '@mui/icons-material/MoreVert';7
 import WhitePaws from '../../assets/img/whiteAPaws.png';
 
 const Search = styled('div')(({ theme }) => ({
@@ -160,8 +160,8 @@ export default function PrimarySearchAppBar({ backgroundGradient }: PrimarySearc
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ background: backgroundGradient || 'default', height: '7vh' }}>
-        <Toolbar sx={{ minHeight: '7vh', alignItems: 'center' }}>
+      <AppBar position="static" sx={{ background: backgroundGradient || 'default' }}>
+        <Toolbar>
           <IconButton
             size="large"
             edge="start"

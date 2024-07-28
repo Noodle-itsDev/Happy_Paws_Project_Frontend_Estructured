@@ -2,20 +2,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import { gsap } from 'gsap';
-import '../../public_views/homeView/homeView.css';
+import './bannerComponent.css';
 
 interface ImageCarouselProps {
-  images: string[];
+  items: { image: string; text: string }[];
 }
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showText, setShowText] = useState(true);
   const textRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Animación para el texto al cambiar de imagen
   useEffect(() => {
     if (textRef.current) {
       gsap.fromTo(textRef.current,
@@ -25,54 +24,52 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     }
   }, [showText]);
 
-  // Animación para la imagen al cambiar de imagen
   useEffect(() => {
     if (imageRef.current) {
       gsap.fromTo(imageRef.current,
-        { x: '100%', opacity: 0, filter: 'blur(10px)' }, // Más desenfoque al inicio
-        { duration: 1.2, x: '0%', opacity: 1, filter: 'blur(0)', ease: 'power2.out' } // Aumentar duración a 1.2s
+        { x: '100%', opacity: 0, filter: 'blur(10px)' },
+        { duration: 1.2, x: '0%', opacity: 1, filter: 'blur(0)', ease: 'power2.out' }
       );
     }
   }, [currentIndex]);
 
-  // Intervalo para cambiar la imagen automáticamente
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setShowText(false);
       setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
         setShowText(true);
-      }, 800); // Delay para mostrar/ocultar texto (ajustar a 800ms)
-    }, 5000); // Cambiar imagen cada 5 segundos (ajustar a 5s)
+      }, 800);
+    }, 5000);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [images.length]);
+  }, [items.length]);
 
-  // Cambiar a la imagen siguiente
   const handleNext = () => {
     setShowText(false);
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
       setShowText(true);
-    }, 800); // Delay para mostrar/ocultar texto (ajustar a 800ms)
+    }, 800);
   };
 
-  // Cambiar a la imagen anterior
   const handlePrev = () => {
     setShowText(false);
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
       setShowText(true);
-    }, 800); // Delay para mostrar/ocultar texto (ajustar a 800ms)
+    }, 800);
   };
 
   return (
-    <Box className="carousel-container">
+    <Box sx={{
+      marginTop: "-107px"
+    }}className="carousel-container">
       <Box className="carousel-image-container">
         <img
-          src={images[currentIndex]}
+          src={items[currentIndex].image}
           alt="carousel"
           className="carousel-image"
           ref={imageRef}
@@ -80,7 +77,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
       </Box>
       <div className="carousel-text" ref={textRef}>
         <Typography variant="h6" className="carousel-text-content">
-          Some Text Here
+          {items[currentIndex].text}
         </Typography>
       </div>
       <Button onClick={handlePrev} className="carousel-button-prev">

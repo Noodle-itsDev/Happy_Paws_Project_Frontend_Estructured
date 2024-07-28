@@ -10,6 +10,7 @@ import '../../assets/fuentes/playwrite.css';
 import './homeView.css';
 import { animateImage } from "./homeViewButtons";
 import CometTrail from "./comet Trail/comet";
+import ToggleDiv from "../../components/toogleDiv/toogleDiv";
 
 const items = [
     { image: Img1, text: "Adopta a tu futura alma gemela" },
@@ -31,7 +32,7 @@ const HomeView: React.FC = () => {
 
     return (
         <div className="w-full h-screen flex flex-col">
-            <div className="fixed top-0 left-0 w-full z-[1200]">
+            <div className="fixed top-0 left-0 w-full z-[9900]">
                 <PrimarySearchAppBar backgroundGradient="linear-gradient(311deg, rgba(57,200,148,1) 0%, rgba(255,214,157,1) 76%, rgba(253,141,29,1) 100%)" />
                 <SimpleBottomNavigation
                     labels={{
@@ -59,7 +60,7 @@ const HomeView: React.FC = () => {
             </section>
             <section className="relative z-[1100] buttons-animation w-[100vw]" ref={buttonsContainerRef}>
             <CometTrail />
-                <div className="flex flex-col lg:flex-row items-center justify-center backgroundAnimated h-auto p-4 lg:p-8">
+                <div className=" flex flex-col lg:flex-row items-center justify-center backgroundAnimated h-auto p-4 lg:p-8">
                     <div className="max-w-[100vw] textAdopciones">
                         <div className="mt-[20px] flex align-center justify-center">
                             <img className="imageLogo" src={LogoImage} alt="Logo" ref={logoImgRef} />
@@ -73,12 +74,14 @@ const HomeView: React.FC = () => {
                 </div>
             </section>
             <section>
-                <div className="h-20 interSection">
+                <div className="relative h-20 interSection z-[1400] bg-white">
                 </div>
             </section>
-            <section className="relative ">
-                <div>
-
+            <section className="relative z-[1400]">
+                <div className="w-[100vw] h-[830px] bg-primary flex items-center">
+                    <div className=" flex align-center">
+                    <ToggleDiv />
+                    </div>
                 </div>
             </section>
         </div>

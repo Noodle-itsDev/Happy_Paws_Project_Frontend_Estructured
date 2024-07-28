@@ -1,9 +1,7 @@
 import React from "react";
 import "../../index.css";
-import NotificationPanel from "../../components/tableFilter/tableFilter";
 import PrimarySearchAppBar from "../../components/header/headerGradient";
 import SimpleBottomNavigation from "../../components/navigation/navigationNavBar";
-import ProtectoraPawsCard from "../../components/cardImgProfile.tsx/cardImgProfile";
 
 const ProtectoraHomeView: React.FC = () => {
 

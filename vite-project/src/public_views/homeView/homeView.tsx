@@ -11,6 +11,8 @@ import './homeView.css';
 import { animateImage } from "./homeViewButtons";
 import CometTrail from "./comet Trail/comet";
 import ToggleDiv from "../../components/toogleDiv/toogleDiv";
+import { dividerClasses } from "@mui/material";
+
 
 const items = [
     { image: Img1, text: "Adopta a tu futura alma gemela" },
@@ -59,7 +61,7 @@ const HomeView: React.FC = () => {
                 </div>
             </section>
             <section className="relative z-[1100] buttons-animation w-[100vw]" ref={buttonsContainerRef}>
-            <CometTrail />
+                <CometTrail />
                 <div className=" flex flex-col lg:flex-row items-center justify-center backgroundAnimated h-auto p-4 lg:p-8">
                     <div className="max-w-[100vw] textAdopciones">
                         <div className="mt-[20px] flex align-center justify-center">
@@ -74,13 +76,18 @@ const HomeView: React.FC = () => {
                 </div>
             </section>
             <section>
-                <div className="relative h-20 interSection z-[1400] bg-white">
+                <div className="relative h-[830px] interSection z-[1400] bg-white">
                 </div>
             </section>
-            <section className="relative z-[1400]">
-                <div className="w-[100vw] h-[830px] bg-primary flex items-center">
+            <section className="relative z-[1500] top-[-700px] flex items-center justify-center">
+                <div className="w-[80vw] h-[830px] bg-[#e9d49c] flex items-center">
                     <div className=" flex align-center">
-                    <ToggleDiv />
+                        <ToggleDiv
+                            contentOne={<div></div>}
+                            contentTwo={<div></div>}
+                            zIndexOne={1200}
+                            zIndexTwo={1200}
+                        />
                     </div>
                 </div>
             </section>

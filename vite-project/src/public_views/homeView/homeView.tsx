@@ -62,14 +62,14 @@ const HomeView: React.FC = () => {
             </section>
             <section className="relative z-[1100] buttons-animation w-[100vw]" ref={buttonsContainerRef}>
                 <CometTrail />
-                <div className=" flex flex-col lg:flex-row items-center justify-center backgroundAnimated h-auto p-4 lg:p-8">
+                <div className=" flex flex-col lg:flex-row items-center justify-center backgroundAnimated h-[900px] p-4 lg:p-8">
                     <div className="max-w-[100vw] textAdopciones">
-                        <div className="mt-[20px] flex align-center justify-center">
+                        <div className="mt-[-100px] flex align-center justify-center">
                             <img className="imageLogo" src={LogoImage} alt="Logo" ref={logoImgRef} />
                         </div>
-                        <div className="bg-white-500 flex align-center justify-center textContainerBenefits max-w-[1400px] mt-[90px]">
+                        <div className="bg-white-500 flex align-center justify-center textContainerBenefits max-w-[1400px] mt-[100px]">
                             <span>
-                                La adopción brinda a la mascota un hogar seguro, amor y atención constante. Proporciona estabilidad, cuidados médicos y la oportunidad de una vida feliz y saludable.
+                            Adopta Amor, Un Hogar Seguro, Una Vida Feliz
                             </span>
                         </div>
                     </div>
@@ -80,8 +80,10 @@ const HomeView: React.FC = () => {
                 </div>
             </section>
             <section className="relative z-[1500] top-[-700px] flex items-center justify-center">
-                <div className="w-[80vw] h-[830px] bg-[#e9d49c] flex items-center">
-                    <div className=" flex align-center">
+                <div className="w-[80vw] h-[830px] bg-[#e9d49c] flex items-center rounded-[20px]" style={{
+                    boxShadow: '0px 20px 20px 20px #808080a1'
+                }}>
+                    <div className=" flex">
                         <ToggleDiv
                             contentOne={<div></div>}
                             contentTwo={<div></div>}

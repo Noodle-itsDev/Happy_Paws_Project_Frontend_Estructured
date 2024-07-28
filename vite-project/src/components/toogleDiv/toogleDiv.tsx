@@ -47,7 +47,7 @@ const ToggleDiv: React.FC<ToggleDivProps> = ({ contentOne, contentTwo, zIndexOne
   }, [isExpandedTwo]);
 
   return (
-    <div className="container relative mx-auto p-4 h-[755px]">
+    <div className="container relative mx-auto h-[755px] l-0">
       <div className="relative">
         <div ref={divRefOne} className="toggleDiv bg-gray-200 rounded-r-[10px] shadow-md" style={{ zIndex: zIndexOne }}>
           <div className="p-4 h-[755px]">
@@ -66,7 +66,7 @@ const ToggleDiv: React.FC<ToggleDivProps> = ({ contentOne, contentTwo, zIndexOne
             {contentTwo}
           </div>
           <button
-            className="toggleButton bg-[#50c878] text-white px-4 rounded-r-[10px] h-[100%]"
+            className="toggleButton bg-[#50c878] text-white px-4 rounded-r-[5px] h-[100%]"
             onClick={toggleDivTwo}
             style={{ zIndex: zIndexTwo }}
           >
